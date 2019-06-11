@@ -43,6 +43,12 @@ module.exports = function() {
     router.post('/pedidos', PedidosController.add);
     //Lista
     router.get('/pedidos', PedidosController.list);
+    //Por id
+    router.get('/pedidos/:id', PedidosController.show);
+    //Actualizar pedido
+    router.put('/pedidos/:id', PedidosController.update);
+    //Eliminar pedido
+    router.delete('/pedidos/:id', PedidosController.delete);
 
     return router;
 }
