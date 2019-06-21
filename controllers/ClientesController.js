@@ -37,7 +37,7 @@ exports.delete = async (req, res, next) => {
     const id = req.params.id;
     const cliente = await Clientes.findByIdAndDelete(id);
     console.log(cliente);
-    res.json({ mensaje: 'Cliente eliminado' });
+    res.json({ mensaje: 'Cliente eliminado', status: 'success' });
   } catch (error) {
     res.json({ mensaje: 'Algo ha salido mal', error });
     next();
