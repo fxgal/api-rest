@@ -25,5 +25,8 @@ app.use(cors());
 //Rutas
 app.use('/', routes());
 
+//Archivos estaticos
+app.use(express.static('uploads'));
+
 //Puerto
 app.listen(5000);
