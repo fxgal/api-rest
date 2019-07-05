@@ -69,6 +69,25 @@ exports.list = async (req, res, next) => {
   }
 };
 
+// Busqueda de productos
+
+exports.searcher = async (req, res, next) => {
+  try {
+    const search = req.params.search;
+    const productos = await Productos.find({ nombre: new RegExp(search, 'i') });
+    res.json({
+      mensaje: 'Busqueda de productos',
+      productos
+    });
+  } catch (error) {
+    res.json({
+      mensaje: 'Algo ha salido mal',
+      error
+    });
+    next();
+  }
+};
+
 // Produto por id
 exports.show = async (req, res, next) => {
   try {
