@@ -12,6 +12,8 @@ const PedidosSchema = new Schema({
         type: Schema.ObjectId,
         ref: 'Productos'
       },
+      nombre: String,
+      precio: Number,
       cantidad: Number
     }
   ],
