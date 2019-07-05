@@ -2,20 +2,22 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const PedidosSchema = new Schema({
-    cliente: {
+  cliente: {
+    type: Schema.ObjectId,
+    ref: 'Clientes'
+  },
+  pedido: [
+    {
+      producto: {
         type: Schema.ObjectId,
-        ref: 'Clientes'
-    },
-    pedido: [{
-        producto: {
-            type: Schema.ObjectId,
-            ref: 'Productos'
-        },
-        cantidad: Number
-    }],
-    total: {
-        type: Number
+        ref: 'Productos'
+      },
+      cantidad: Number
     }
+  ],
+  total: {
+    type: Number
+  }
 });
 
 module.exports = mongoose.model('Pedidos', PedidosSchema);
