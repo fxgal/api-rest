@@ -5,6 +5,7 @@ const router = express.Router();
 const ClientesController = require('../controllers/ClientesController');
 const ProductosController = require('../controllers/ProductosController');
 const PedidosController = require('../controllers/PedidosController');
+const UsuariosController = require('../controllers/UsuariosController');
 
 module.exports = function() {
   //---------------->Clientes
@@ -52,6 +53,9 @@ module.exports = function() {
   router.put('/pedidos/:id', PedidosController.update);
   //Eliminar pedido
   router.delete('/pedidos/:id', PedidosController.delete);
+
+  //---------------->Usuarios
+  router.post('/usuarios', UsuariosController.register);
 
   return router;
 };
